@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects · Barshneyo</title>
+  <meta name="description" content="Barshneyo Chakraborty's projects: ROGSCO and CGRGC, graph-based machine learning for routing and supply chains.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Space+Mono:wght@400;700&family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="projects.css">
+</head>
+<body class="neo">
+  <canvas id="net" aria-hidden="true"></canvas>
+
+  <div class="wrap">
+    <header class="nav">
+      <a class="logo" href="index.html">B<span>.</span>C</a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About me</a></li>
+          <li><a href="projects.html" aria-current="page">Projects</a></li>
+          <li><a href="education.html">Education</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+
+  <main id="top" class="neo-main">
+    <div class="wrap">
+
+      <section class="neo-head">
+        <p class="sys">// 02 · projects.graph</p>
+        <h1 class="neo-title">Projects</h1>
+        <p class="formula">G = (V, E) &nbsp;where&nbsp; V = { <b class="c-gold">ROGSCO</b>, <b class="c-pink">CGRGC</b>, … }</p>
+      </section>
+
+      <!-- Node cards -->
+      <div class="nodes">
+        <article class="nodecard gold" data-for="rogsco">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <div class="nc-top">
+            <span class="vid">v₁</span>
+            <span class="tag">main research</span>
+            <span class="status"><i></i>in progress</span>
+          </div>
+          <h2>ROGSCO</h2>
+          <p class="nc-full">Resilient Online Graph-based Supply Chain Optimization</p>
+          <div class="desc-wrap"><p class="nc-desc clamp">Routing petroleum deliveries from depots to fuel stations on real city road networks, while planning for bottlenecks, structural failures and supply-demand shocks. The network is clustered, risk is learned over time, and trucks are routed inside each cluster. A feedback trigger re-runs the clustering and routing when something changes.</p><button type="button" class="more">Read More</button></div>
+          <p class="run">Tier 1 results · Transportation Bottleneck · Philadelphia · 30 depots, 160 fuel stations</p>
+          <div class="stats four">
+            <div><b>85.6%</b><span>DGKCGC wins vs MinCutPool, 1,000 closure draws</span></div>
+            <div><b>0.84</b><span>AUC, TrB-STRA-GAT bottleneck risk</span></div>
+            <div><b>−46%</b><span>robust cost vs OR-Tools routing</span></div>
+            <div><b>−98%</b><span>hazmat violations vs OR-Tools</span></div>
+          </div>
+          <ol class="pipe">
+            <li><span>01</span>DGKCGC <em>Disruption Guided Katz–Bonacich Centrality based Graph Clustering</em></li>
+            <li><span>02</span>TrB-STRA-GAT <em>spatiotemporal risk-aware graph attention</em></li>
+            <li><span>03</span>DRO-RL <em>robust reinforcement-learning routing</em></li>
+          </ol>
+        </article>
+
+        <article class="nodecard pink" data-for="cgrgc">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <div class="nc-top">
+            <span class="vid">v₂</span>
+            <span class="tag">clustering · drones</span>
+            <span class="status done"><i></i>validated</span>
+          </div>
+          <h2>CGRGC</h2>
+          <p class="nc-full">Congestion-Guided Residual Graph Clustering</p>
+          <div class="desc-wrap"><p class="nc-desc clamp">A clustering algorithm for multi-drone delivery routing that separates congested areas before routes are planned. Its ideas later evolved into DGKCGC, the first stage of ROGSCO.</p><button type="button" class="more">Read More</button></div>
+          <div class="stats">
+            <div><b>~70%</b><span>win rate vs baselines</span></div>
+            <div><b>1,000+</b><span>trials</span></div>
+            <div><b>multi</b><span>drone routing</span></div>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="marquee in-flow" aria-hidden="true">
+    <div class="track">
+      <span>Graph theory ✦</span><span>Clustering ✦</span><span>Routing ✦</span><span>GNNs ✦</span><span>Optimization ✦</span><span>Reinforcement learning ✦</span>
+      <span>Graph theory ✦</span><span>Clustering ✦</span><span>Routing ✦</span><span>GNNs ✦</span><span>Optimization ✦</span><span>Reinforcement learning ✦</span>
+    </div>
+  </div>
+  <div class="checker" aria-hidden="true"></div>
+  <footer>© <span id="year">2026</span> Barshneyo Chakraborty · Calcutta</footer>
+
+  <script src="script.js"></script>
+  <script src="graphs.js"></script>
+  <script>
+    document.querySelectorAll('.desc-wrap').forEach(w => {
+      const p = w.querySelector('.nc-desc'), b = w.querySelector('.more');
+      b.addEventListener('click', () => {
+        const open = p.classList.toggle('clamp') === false;
+        b.textContent = open ? 'Show Less' : 'Read More';
+        b.setAttribute('aria-expanded', open);
+      });
+      b.setAttribute('aria-expanded', 'false');
+    });
+  </script>
+</body>
+</html>
