@@ -332,3 +332,18 @@ body:has(.marquee:not(.in-flow)) { padding-bottom: 64px; }
 
 /* On inner pages the ticker sits at the end of the page instead of floating over photos */
 .marquee.in-flow { position: static; border-top: 3px solid var(--ink); }
+
+/* Contact details */
+.contact-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; text-align: left; }
+.contact-list li {
+  display: grid; grid-template-columns: 96px 1fr; gap: 12px; align-items: center;
+  border: 2px solid var(--ink); padding: 10px 14px; background: var(--paper);
+}
+.contact-list li:nth-child(1) { box-shadow: 4px 4px 0 var(--pink); }
+.contact-list li:nth-child(2) { box-shadow: 4px 4px 0 var(--teal); }
+.contact-list li:nth-child(3) { box-shadow: 4px 4px 0 var(--mustard); }
+.contact-list li:nth-child(4) { box-shadow: 4px 4px 0 var(--orange); }
+.c-lbl { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
+.contact-list a { font-weight: 700; overflow-wrap: anywhere; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.contact-list a:hover { color: var(--pink); }
+@media (max-width: 480px) { .contact-list li { grid-template-columns: 1fr; gap: 2px; } }
